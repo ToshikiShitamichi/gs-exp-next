@@ -165,6 +165,8 @@ export default function Home() {
       fetchPosts(user?.id);
     } catch (error) {
       console.error("Error creating post:", error);
+    } finally {
+      setUploading(false);
     }
   };
 
