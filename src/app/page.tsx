@@ -140,7 +140,6 @@ export default function Home() {
         imageUrl = await uploadImage(imageFile);
         if (!imageUrl) {
           alert("画像のアップロードに失敗しました");
-          setUploading(false);
           return;
         }
       }
@@ -162,7 +161,7 @@ export default function Home() {
       }
 
       setNewPost("");
-      fetchPosts(user?.id);
+      await fetchPosts(user?.id);
     } catch (error) {
       console.error("Error creating post:", error);
     } finally {
